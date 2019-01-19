@@ -28,6 +28,7 @@ func setupRouter() *gin.Engine {
 			err := SystemExec([][]string{
 				{
 					"docker", "node", "update", "--label-add", fmt.Sprintf("service.name=%s", json.ServiceName), json.NodeID,
+					"--label-add", "node.type=single",
 				},
 			})
 
